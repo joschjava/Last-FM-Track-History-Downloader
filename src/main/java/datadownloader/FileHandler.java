@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.List;
 
-public class FileHandler {
+class FileHandler {
 
     /**
      * Reads the newest timestamp from file in generated csv file

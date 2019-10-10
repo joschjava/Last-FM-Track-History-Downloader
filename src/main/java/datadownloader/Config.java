@@ -15,7 +15,7 @@ public class Config {
     public static String USERNAME;
     public static String SAVE_FILE;
     public static String RESPONSE_LOG_FOLDER;
-    public static String CSV_DELIMITER = ";";
+    public static final String CSV_DELIMITER = ";";
 
     /**
      * Reads configuration from settings.properties, see README.md for info

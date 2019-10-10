@@ -9,7 +9,7 @@ import okhttp3.Response;
 import java.io.IOException;
 
 @Slf4j
-public class Connector {
+class Connector {
     /**
      * Connects to last fm and returns the reponse in JSON format
      * @param page The page for the request

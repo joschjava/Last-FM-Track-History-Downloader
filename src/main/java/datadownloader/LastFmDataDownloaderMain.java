@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class LastFmDataDownloaderMain {
+class LastFmDataDownloaderMain {
 
     public static void main(String[] args) {
         Config.loadConfig();
