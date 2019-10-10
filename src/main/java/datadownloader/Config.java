@@ -15,8 +15,7 @@ public class Config {
     public static String USERNAME;
     public static String SAVE_FILE;
     public static String RESPONSE_LOG_FOLDER;
-    public static String CSV_DELIMITER;
-
+    public static String CSV_DELIMITER = ";";
 
     public static void loadConfig() {
         Parameters params = new Parameters();
@@ -29,8 +28,7 @@ public class Config {
             API_KEY = config.getString("apiKey");
             USERNAME = config.getString("username");
             SAVE_FILE = config.getString("saveFile");
-            RESPONSE_LOG_FOLDER = config.getString("reponseLogFolder");
-            CSV_DELIMITER = config.getString("csvDelimiter");
+            RESPONSE_LOG_FOLDER = config.getString("responseLogFolder");
         } catch (ConfigurationException e) {
             log.error("loading of the configuration file failed:");
             log.error(ExceptionUtils.getStackTrace(e));
