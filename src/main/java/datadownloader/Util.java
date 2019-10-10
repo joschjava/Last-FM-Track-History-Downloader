@@ -8,6 +8,11 @@ import java.util.List;
 
 public class Util {
 
+    /**
+     * Calculates the next page from DataInfo object
+     * @param dataInfo
+     * @return
+     */
     public static int getNextPage(DataInfo dataInfo) {
         int currentPage = dataInfo.getCurrentPage();
         int totalPages = dataInfo.getTotalPages();
@@ -18,6 +23,10 @@ public class Util {
         }
     }
 
+    /**
+     * Sorts the tracks in ascending order by unix timestamp
+     * @param tracks
+     */
     public static void sortTracks(List<Track> tracks) {
         Collections.sort(tracks, (t1, t2) -> {
             if (t1.getPlayedAt() > t2.getPlayedAt()) {

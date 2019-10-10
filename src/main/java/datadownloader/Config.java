@@ -17,6 +17,9 @@ public class Config {
     public static String RESPONSE_LOG_FOLDER;
     public static String CSV_DELIMITER = ";";
 
+    /**
+     * Reads configuration from settings.properties, see README.md for info
+     */
     public static void loadConfig() {
         Parameters params = new Parameters();
         FileBasedConfigurationBuilder<FileBasedConfiguration> builder =

@@ -10,8 +10,14 @@ import java.util.List;
 
 public class JsonParser {
 
-    DataInfo getDataInfo(JSONObject obj) {
-        JSONObject attr = obj.getJSONObject("recenttracks").getJSONObject("@attr");
+
+    /**
+     * Reads current page, total pages and total number of tracks from JSON string
+     * @param fullResponseJson The direct response from last fm
+     * @return DataInfo object with said attributes
+     */
+    DataInfo getDataInfo(JSONObject fullResponseJson) {
+        JSONObject attr = fullResponseJson.getJSONObject("recenttracks").getJSONObject("@attr");
         int currentPage = attr.getInt("page");
         int totalPages = attr.getInt("totalPages");
         int totalDatasets = attr.getInt("total");
@@ -19,6 +25,11 @@ public class JsonParser {
         return dataInfo;
     }
 
+    /**
+     * Converts JSON string into Track object
+     * @param trackJson
+     * @return Track object with name, artist, album and date information
+     */
     private Track getTrack(JSONObject trackJson) {
         if (trackJson.has("@attr")) {
             JSONObject attr = trackJson.getJSONObject("@attr");
@@ -40,11 +51,14 @@ public class JsonParser {
         return track;
     }
 
-
-
-    List<Track> getTracks(JSONObject obj) {
+    /**
+     * Converts JSON object to Track List
+     * @param allTracksJson
+     * @return
+     */
+    List<Track> getTracks(JSONObject allTracksJson) {
         List<Track> tracks = new ArrayList<>();
-        JSONArray jsonArray = obj.getJSONObject("recenttracks").getJSONArray("track");
+        JSONArray jsonArray = allTracksJson.getJSONObject("recenttracks").getJSONArray("track");
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject trackJson = jsonArray.getJSONObject(i);
             Track track = getTrack(trackJson);

@@ -11,6 +11,10 @@ import java.util.List;
 
 public class FileHandler {
 
+    /**
+     * Reads the newest timestamp from file in generated csv file
+     * @return
+     */
     long getNewestTimestamp() {
         String csvFileContent = getLastLineFromCsvFile();
         if (csvFileContent != null) {

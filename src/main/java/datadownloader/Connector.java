@@ -10,7 +10,12 @@ import java.io.IOException;
 
 @Slf4j
 public class Connector {
-
+    /**
+     * Connects to last fm and returns the reponse in JSON format
+     * @param page The page for the request
+     * @param from Unix timestamp from which tracks are read
+     * @return
+     */
     String getRawDataFromServer(int page, long from) {
         OkHttpClient client = new OkHttpClient();
         String url = "http://ws.audioscrobbler.com/2.0/";
