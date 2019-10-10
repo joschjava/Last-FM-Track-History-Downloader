@@ -1,4 +1,4 @@
-# Last FM All Tracks Downloader
+# Last FM Tracks History Downloader
 
 Downloads all of your song history from Last.fm into a csv file. 
 
