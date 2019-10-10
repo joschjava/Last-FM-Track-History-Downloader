@@ -1,5 +1,6 @@
-package datadownloader;
+package datadownloader.domain;
 
+import datadownloader.Config;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
