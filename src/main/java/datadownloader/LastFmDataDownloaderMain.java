@@ -26,7 +26,7 @@ class LastFmDataDownloaderMain {
             JSONObject obj = new JSONObject(rawDataFromServer);
             DataInfo dataInfo = parser.getDataInfo(obj);
             totalDatasets = dataInfo.getTotalDatasets();
-            if(dataInfo.getTotalPages() != 0) {
+            if (dataInfo.getTotalPages() != 0) {
                 List<Track> pageTracks = parser.getTracks(obj);
                 tracks.addAll(pageTracks);
                 int scrapedPage = nextPage;
@@ -44,7 +44,9 @@ class LastFmDataDownloaderMain {
                     "Total Datasets: " + totalDatasets + "\n" +
                     "Extracted Datasets: " + numExtractedTracks);
         }
-        fileHandler.writeToCsvFile(tracks);
+        if (numExtractedTracks > 0) {
+            fileHandler.writeToCsvFile(tracks);
+        }
         log.info("Scraping finished. Added " + totalDatasets + " tracks");
     }
 }
