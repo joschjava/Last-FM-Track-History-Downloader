@@ -35,7 +35,7 @@ class Connector {
 
         HttpUrl urlWithParams = httpBuilder.build();
         log.info("Sending request to Last.fm:");
-        log.info(urlWithParams.toString());
+        log.info(urlWithParams.toString().replace(Config.API_KEY, "*****"));
         Request request = new Request.Builder().url(urlWithParams)
                 .get()
                 .addHeader("Accept", "*/*")
