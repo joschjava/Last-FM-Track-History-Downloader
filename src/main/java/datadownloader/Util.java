@@ -16,7 +16,7 @@ class Util {
     public static int getNextPage(DataInfo dataInfo) {
         int currentPage = dataInfo.getCurrentPage();
         int totalPages = dataInfo.getTotalPages();
-        if (currentPage == totalPages) {
+        if (currentPage == totalPages || totalPages == 0) {
             return -1;
         } else {
             return currentPage + 1;

@@ -14,7 +14,7 @@ Build and create settings.properties file in root folder:
     apiKey = YOUR_API_KEY
     username = USERNAME
     saveFile = lastfmdata.csv
-    reponseLogFolder = responses
+    responseLogFolder = responses
     
 **apiKey** Your api key, it can be generated for free on https://www.last.fm/api/account/create and will 
 be available immediately

@@ -24,13 +24,18 @@ class LastFmDataDownloaderMain {
             String rawDataFromServer = connection.getRawDataFromServer(nextPage, newestTimestamp);
             fileHandler.saveServerResponse(rawDataFromServer);
             JSONObject obj = new JSONObject(rawDataFromServer);
-            List<Track> pageTracks = parser.getTracks(obj);
-            tracks.addAll(pageTracks);
             DataInfo dataInfo = parser.getDataInfo(obj);
-            int scrapedPage = nextPage;
-            nextPage = Util.getNextPage(dataInfo);
             totalDatasets = dataInfo.getTotalDatasets();
-            log.info("Scraped page " + scrapedPage + "/" + dataInfo.getTotalPages());
+            if(dataInfo.getTotalPages() != 0) {
+                List<Track> pageTracks = parser.getTracks(obj);
+                tracks.addAll(pageTracks);
+                int scrapedPage = nextPage;
+                nextPage = Util.getNextPage(dataInfo);
+                log.info("Scraped page " + scrapedPage + "/" + dataInfo.getTotalPages());
+            } else {
+                log.info("No new tracks found");
+                nextPage = -1;
+            }
         } while (nextPage != -1);
         Util.sortTracks(tracks);
         int numExtractedTracks = tracks.size();

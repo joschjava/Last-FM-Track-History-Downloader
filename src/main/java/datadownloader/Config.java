@@ -32,6 +32,12 @@ public class Config {
             USERNAME = config.getString("username");
             SAVE_FILE = config.getString("saveFile");
             RESPONSE_LOG_FOLDER = config.getString("responseLogFolder");
+            if(SAVE_FILE == null){
+                SAVE_FILE = "lastfmdata.csv";
+            }
+            if(RESPONSE_LOG_FOLDER == null){
+                RESPONSE_LOG_FOLDER = "responses";
+            }
         } catch (ConfigurationException e) {
             log.error("loading of the configuration file failed:");
             log.error(ExceptionUtils.getStackTrace(e));
